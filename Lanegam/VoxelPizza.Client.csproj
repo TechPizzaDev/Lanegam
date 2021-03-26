@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+    <TieredCompilation>false</TieredCompilation>
+    <AssetsDir>$(MSBuildThisFileDirectory)Assets</AssetsDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="$(AssetsDir)\Textures\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+
+    <Content Include="$(AssetsDir)\Models\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    
+    <Content Include="$(AssetsDir)\Shaders\*.spv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Veldrid" Version="4.9.0-gffcf1cdb33" />
+    <PackageReference Include="Veldrid.ImageSharp" Version="4.9.0-gffcf1cdb33" />
+    <PackageReference Include="Veldrid.ImGui" Version="5.72.0" />
+    <PackageReference Include="Veldrid.RenderDoc" Version="1.0.1" />
+    <PackageReference Include="Veldrid.SPIRV" Version="1.0.14" />
+    <PackageReference Include="Veldrid.StartupUtilities" Version="4.9.0-gffcf1cdb33" />
+    <PackageReference Include="Veldrid.Utilities" Version="4.9.0-gfca0b9438b" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VoxelPizza.Base\VoxelPizza.Base.csproj" />
+    <ProjectReference Include="..\VoxelPizza\VoxelPizza.csproj" />
+  </ItemGroup>
+
+</Project>
