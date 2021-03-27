@@ -1,7 +1,7 @@
 #version 450
 
-//layout(set = 0, binding = 0) uniform texture2D Texture0;
-//layout(set = 0, binding = 1) uniform sampler Sampler0;
+layout(set = 1, binding = 0) uniform texture2D Texture0;
+layout(set = 1, binding = 1) uniform sampler Sampler0;
 
 layout(location = 0) in vec4 Color;
 layout(location = 1) in vec2 TexCoord;
@@ -22,7 +22,7 @@ vec3 LinearToSrgb(vec3 linear)
 
 void main()
 {
-    vec4 color = vec4(1, 1, 1, 1); // texture(sampler2D(Texture0, Sampler0), TexCoord);
+    vec4 color = texture(sampler2D(Texture0, Sampler0), TexCoord);
     color *= Color;
 
     if (!OutputFormatSrgb)

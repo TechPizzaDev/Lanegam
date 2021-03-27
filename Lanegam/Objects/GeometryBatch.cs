@@ -212,6 +212,9 @@ namespace Lanegam.Objects
                 throw new InvalidOperationException();
 
             _begun = false;
+            
+            if (_indexOffset == 0)
+                _bufferCount--;
 
             FinishCurrentBuffers();
         }
